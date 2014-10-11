@@ -15,21 +15,21 @@ hpc <- cbind(hpc_raw,DateTime)
 png(filename = "plot4.png",width = 480, height = 480)
 par(mfrow=c(2,2))
 
-#1 upper left
-plot(hpc$DateTime,hpc_new$Global_active_power,type="l",ylab="Global Active Power",xlab="")
-
-#2 upper right
-with(hpc,plot(DateTime,Voltage,type="l",ylab="Voltage",xlab="datetime")) 
-
-#3 lower left
-with(hpc,{
-        plot(DateTime,Sub_metering_1,type="l",ylab="Energy sub metering",xlab="")
-        points(DateTime,Sub_metering_2,col="red",type="l")
-        points(DateTime,Sub_metering_3,col="blue",type="l")
-        legend("topright",bty="n",col=c("black","red","blue"),lwd=.5,legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
-})
-
-#4 lower right
-with(hpc,plot(DateTime,Global_reactive_power,type="l",xlab="datetime")) 
+        #1 upper left
+        with(hpc,plot(DateTime,Global_active_power,type="l",ylab="Global Active Power",xlab=""))
+        
+        #2 upper right
+        with(hpc,plot(DateTime,Voltage,type="l",ylab="Voltage",xlab="datetime")) 
+        
+        #3 lower left
+        with(hpc,{
+                plot(DateTime,Sub_metering_1,type="l",ylab="Energy sub metering",xlab="")
+                points(DateTime,Sub_metering_2,col="red",type="l")
+                points(DateTime,Sub_metering_3,col="blue",type="l")
+                legend("topright",bty="n",col=c("black","red","blue"),lwd=.5,legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+        })
+        
+        #4 lower right
+        with(hpc,plot(DateTime,Global_reactive_power,type="l",xlab="datetime")) 
 
 dev.off()
