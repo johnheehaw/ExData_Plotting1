@@ -12,7 +12,7 @@ DateTime <- strptime(newDateTime, "%d/%m/%Y %H:%M:%S")
 hpc <- cbind(hpc_raw,DateTime)
 
 # graph 3 - line graph of sub metering 1-3
-png(filename = "plot2.png",width = 480, height = 480)
+png(filename = "plot3.png",width = 480, height = 480)
 with(hpc,{
         plot(DateTime,Sub_metering_1,type="l",ylab="Energy sub metering",xlab="")
         points(DateTime,Sub_metering_2,col="red",type="l")
